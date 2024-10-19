@@ -6,8 +6,9 @@ int main(int argc, char* argv[]){
     string test1 = "12345";
     Password password1(test1);
 
+    
     string temp = "test1";
-    SimplePasswordManager manager(password1, temp);
+    SimplePasswordManager manager(temp);
     manager.loadPasswords();
     manager.inportPasswordManager();
     manager.getAllPasswords();

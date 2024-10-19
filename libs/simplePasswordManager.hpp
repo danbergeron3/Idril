@@ -18,54 +18,54 @@ using std::cin;
 // (TODO:) Add a more robust way of handling passwords 
 class Password {
  public:
-   Password(string& _password) : password(_password) {}
+  Password(string& _password) : password(_password) {}
 
  private:
-   string password;
+  string password;
+  string key = "temp";
 };
 
 class SimplePasswordManager {
  public:
 
-   SimplePasswordManager(Password &password, string &managerName);
-   SimplePasswordManager(Password &password, string &managerName, 
-                  std::fstream passwordManagerSrc, fs::path passwordManagerPath);
+  SimplePasswordManager(string &_managerName);
+  SimplePasswordManager(Password &_password, string &_managerName, 
+                std::fstream& _passwordManagerSrc, fs::path _passwordManagerPath);
 
-   // loads passwords into code
-   void loadPasswords();
+  // loads passwords into code
+  void loadPasswords();
 
-   
-   // setters 
-   void AddPassword();
-   void RemovePassword();
+  
+  // setters 
+  void AddPassword();
+  void RemovePassword();
 
-   // getters 
-   void getPassword();
-   void getAllPasswords();
+  // getters 
+  void getPassword();
+  void getAllPasswords();
 
-   // export passwords
-   void exportPasswordManager();
+  // export passwords
+  void exportPasswordManager();
 
-   // inport passwords
-   void inportPasswordManager();
+  // inport passwords
+  void inportPasswordManager();
 
-   // displays DELETE me
-   void dsiplayPassword();
+  // displays DELETE me
+  void dsiplayPassword();
 
-   // destructor
-   ~SimplePasswordManager() {
-      cout << "Destructor was called\n";
-   }
+  // destructor
+  ~SimplePasswordManager(); 
 
  private:
    
-   string managerName;
-   unordered_map<string, Password> passwordDictionary;
-   
-   // pointer to file src
-   std::fstream passwordManagerSrc;
-   
-   // path to file for assertion
-   fs::path passwordManagerPath;
+  const string vaultFolder = "vault";
+  string managerName;
+  unordered_map<string, Password> passwordDictionary;
+  
+  // pointer to file src
+  std::fstream passwordManagerSrc;
+  
+  // path to file for assertion
+  fs::path passwordManagerPath;
    
 };
