@@ -1,7 +1,7 @@
 # Idril
 
 ### Description
-This is not a password manager, I know how this looks.
+
 
 ### Requirments 
 - cmake 3.22
